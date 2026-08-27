@@ -1,0 +1,971 @@
+/* =========================================================
+   LK STUDIO - ESTILO GENERAL
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --fondo: #080808;
+    --fondo-secundario: #0d0d0d;
+    --tarjeta: #111111;
+    --tarjeta-hover: #161616;
+    --borde: #2c2c2c;
+    --borde-hover: #555555;
+
+    --blanco: #ffffff;
+    --gris: #b8b8b8;
+    --amarillo: #ffc400;
+    --amarillo-hover: #ffd83d;
+
+    --sombra: rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background:
+        radial-gradient(circle at top, #151515 0%, #080808 45%);
+
+    color: var(--blanco);
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 4%;
+
+    background: rgba(0, 0, 0, 0.95);
+
+    border-bottom: 1px solid #202020;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* Logo */
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo {
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+
+    image-rendering: pixelated;
+}
+
+.logo-container h1 {
+    margin: 0;
+
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   MENU
+   ========================================================= */
+
+.menu {
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a,
+nav a {
+    position: relative;
+
+    color: var(--blanco);
+
+    text-decoration: none;
+
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+
+    transition: 0.25s ease;
+}
+
+
+/* Línea debajo */
+
+.menu li a::after,
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -10px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--amarillo);
+
+    transition: width 0.25s ease;
+}
+
+.menu li a:hover,
+nav a:hover {
+    color: var(--amarillo);
+}
+
+.menu li a:hover::after,
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   SOBRE MI
+   ========================================================= */
+
+.sobre {
+    max-width: 700px;
+
+    margin: 80px auto 50px;
+
+    padding: 0 30px;
+}
+
+.sobre h2 {
+    margin-bottom: 20px;
+
+    font-size: 32px;
+
+    font-family: Arial, sans-serif;
+}
+
+.sobre p {
+    color: var(--gris);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   SOBRE MI TRABAJO
+   ========================================================= */
+
+.sobre-trabajo {
+    max-width: 1200px;
+
+    margin: 70px auto;
+
+    padding: 0 30px;
+}
+
+.sobre-trabajo h2 {
+    margin-bottom: 30px;
+
+    font-family: 'Press Start 2P', cursive;
+
+    font-size: 22px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.contenedor-cards {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.card {
+    background: linear-gradient(
+        145deg,
+        #151515,
+        #0e0e0e
+    );
+
+    border: 1px solid var(--borde);
+
+    padding: 25px;
+
+    min-height: 160px;
+
+    border-radius: 16px;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--amarillo);
+
+    background: var(--tarjeta-hover);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 196, 0, 0.08);
+}
+
+.card h3 {
+    font-family: 'Press Start 2P', cursive;
+
+    font-size: 13px;
+
+    margin-top: 0;
+
+    line-height: 1.6;
+}
+
+.card p {
+    color: var(--gris);
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PÁGINAS
+   ========================================================= */
+
+.pagina {
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 50px auto;
+
+    padding: 0 30px;
+
+    text-align: center;
+}
+
+.pagina h1,
+.pagina h2 {
+    font-family: 'Press Start 2P', cursive;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   GALERÍA DE DISEÑOS
+   ========================================================= */
+
+.galeria {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(190px, 1fr));
+
+    gap: 24px;
+
+    margin: 30px auto;
+
+    width: 100%;
+}
+
+
+/* Tarjeta de diseño */
+
+.galeria img {
+    width: 100%;
+    height: 280px;
+
+    object-fit: cover;
+
+    display: block;
+
+    background: #111;
+
+    border: 1px solid var(--borde);
+
+    border-radius: 14px;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    image-rendering: pixelated;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Hover */
+
+.galeria img:hover {
+    transform: translateY(-8px) scale(1.02);
+
+    border-color: var(--amarillo);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(255, 196, 0, 0.12);
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.94);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    z-index: 2000;
+
+    backdrop-filter: blur(8px);
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+
+    object-fit: contain;
+
+    image-rendering: pixelated;
+
+    border: 2px solid var(--amarillo);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 0 40px rgba(255, 196, 0, 0.15);
+}
+
+
+/* =========================================================
+   PRODUCTOS
+   ========================================================= */
+
+.productos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(210px, 1fr));
+
+    gap: 22px;
+
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 40px auto;
+
+    padding: 0 30px;
+}
+
+
+/* =========================================================
+   TARJETA PRODUCTO
+   ========================================================= */
+
+.producto {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #0d0d0d
+        );
+
+    border: 1px solid var(--borde);
+
+    padding: 15px;
+
+    width: 100%;
+
+    min-height: 350px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    color: white;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.producto:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--amarillo);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.6),
+        0 0 25px rgba(255, 196, 0, 0.12);
+}
+
+
+/* =========================================================
+   IMAGEN PRODUCTO
+   ========================================================= */
+
+.producto img {
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: contain;
+
+    background: #050505;
+
+    border: 1px solid #222;
+
+    border-radius: 12px;
+
+    margin-bottom: 15px;
+
+    image-rendering: pixelated;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.producto:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   NOMBRE PRODUCTO
+   ========================================================= */
+
+.producto h3 {
+    font-size: 16px;
+
+    margin: 5px 0 10px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   PRECIO
+   ========================================================= */
+
+.producto span {
+    display: block;
+
+    margin: 5px 0 15px;
+
+    color: var(--amarillo);
+
+    font-family: 'Press Start 2P', cursive;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.boton {
+    display: inline-block;
+
+    margin-top: auto;
+
+    padding: 12px 15px;
+
+    background: var(--amarillo);
+
+    border: 1px solid var(--amarillo);
+
+    color: #000;
+
+    font-family: 'Press Start 2P', cursive;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.boton:hover {
+    background: var(--amarillo-hover);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 20px rgba(255, 196, 0, 0.25);
+}
+
+.boton:active {
+    transform: translateY(1px);
+}
+
+
+/* =========================================================
+   NAV NORMAL
+   ========================================================= */
+
+nav {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+
+    margin: 25px 0;
+}
+
+nav a {
+    margin: 0;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--amarillo);
+}
+
+
+/* =========================================================
+   SELECCIÓN DE TEXTO
+   ========================================================= */
+
+::selection {
+    background: var(--amarillo);
+
+    color: black;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .contenedor-cards {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .productos {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .galeria {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .menu {
+        gap: 20px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .logo-container h1 {
+        font-size: 13px;
+    }
+
+    .logo {
+        width: 38px;
+        height: 38px;
+    }
+
+    .menu {
+        gap: 12px;
+    }
+
+    .menu li a {
+        font-size: 8px;
+    }
+
+    .sobre {
+        margin-top: 50px;
+
+        padding: 0 20px;
+    }
+
+    .sobre h2 {
+        font-size: 25px;
+    }
+
+    .sobre-trabajo {
+        padding: 0 20px;
+    }
+
+    .contenedor-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .galeria img {
+        height: 240px;
+    }
+
+    .productos {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        padding: 0 15px;
+
+        gap: 12px;
+    }
+
+    .producto {
+        min-height: 320px;
+
+        padding: 10px;
+    }
+
+    .producto img {
+        height: 170px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - CELULAR PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    .navbar {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria img {
+        height: 300px;
+    }
+
+    .productos {
+        grid-template-columns: 1fr;
+    }
+
+    .producto img {
+        height: 220px;
+    }
+
+    .pagina {
+        padding: 0 15px;
+    }
+}
+
+.modal-contenido {
+    background: #0d0d0d;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.modal-contenido img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+/* PREVIEW GENERAL */
+.preview {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 30px;
+}
+
+/* TITULOS CLICK */
+.preview-header h2 {
+    font-family: 'Press Start 2P', cursive;
+    margin: 40px 0 20px;
+}
+
+.preview-header a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.preview-header a:hover {
+    color: var(--amarillo);
+}
+
+/* DISEÑOS */
+.preview-disenos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.preview-disenos img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--borde);
+    transition: 0.3s;
+}
+
+.preview-disenos img:hover {
+    transform: scale(1.05);
+    border-color: var(--amarillo);
+}
+
+/* PRODUCTOS */
+.preview-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.preview-card {
+    background: #111;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.preview-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+}
+
+.preview-card p {
+    margin-top: 8px;
+    color: var(--amarillo);
+}
+
+.diseno-item {
+    position: relative;
+}
+
+.like-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+
+    background: rgba(0,0,0,0.7);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.like-btn:hover {
+    background: #ff0055;
+}
+
+.diseno-item {
+    position: relative;
+}
+
+.like-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+
+    background: rgba(0,0,0,0.7);
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.like-btn:hover {
+    transform: scale(1.1);
+}
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.gallery-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.gallery {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+.ver-mas {
+  margin-top: 15px;
+  text-align: center;
+}

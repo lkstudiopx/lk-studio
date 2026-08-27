@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Diseños - LK STUDIO</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <h1>LK STUDIO</h1>
+    <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="disenos.html">Diseños</a></li>
+        <li><a href="productos.html">Productos</a></li>
+    </ul>
+</nav>
+
+<section class="pagina">
+    <h2>MIS DISEÑOS</h2>
+
+    <div class="galeria" id="contenedorDisenos"></div>
+
+        <!-- LISTA COMPLETA -->
+        <script>
+        const listaDisenos = [
+            "frieren","OrangeCat","Bocchi","Snoopy","Pacha con Jetpsot",
+            "Pac Man obra","Gengar","MICROSOFT ART","Marvin The Martian",
+            "Mario BROS","maquina de chicles","DESING ART FAROL","Kirby Fiestast"
+        ];
+        </script>
+
+        <!-- CONTENEDOR DINÁMICO -->
+        <div id="contenedorDisenos"></div>
+
+    </div>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="cerrarImagen()">
+    <img id="imgGrande">
+</div>
+
+<script>
+// 🔥 GENERAR DISEÑOS AUTOMÁTICAMENTE
+const contenedor = document.getElementById("contenedorDisenos");
+
+listaDisenos.forEach(nombre => {
+    contenedor.innerHTML += `
+        <div class="diseno-item">
+            <img src="imagenes/${nombre}.png" onclick="abrirImagen(this)">
+
+            <button class="like-btn" id="btn-${nombre}" onclick="toggleLike('${nombre}')">
+                ❤️
+            </button>
+        </div>
+    `;
+});
+
+// MODAL
+function abrirImagen(img) {
+    document.getElementById("modal").style.display = "flex";
+    document.getElementById("imgGrande").src = img.src;
+}
+
+function cerrarImagen() {
+    document.getElementById("modal").style.display = "none";
+}
+
+// ❤️ LIKE TOGGLE
+function toggleLike(id) {
+    let estado = localStorage.getItem("like-" + id);
+
+    if (estado === "true") {
+        // quitar like
+        localStorage.setItem("like-" + id, "false");
+    } else {
+        // dar like
+        localStorage.setItem("like-" + id, "true");
+    }
+
+    actualizarBoton(id);
+}
+
+// ACTUALIZAR ESTILO
+function actualizarBoton(id) {
+    const btn = document.getElementById("btn-" + id);
+    const estado = localStorage.getItem("like-" + id);
+
+    if (estado === "true") {
+        btn.style.background = "#ff0055";
+    } else {
+        btn.style.background = "rgba(0,0,0,0.7)";
+    }
+}
+
+// CARGAR ESTADO AL INICIO
+window.onload = function() {
+    listaDisenos.forEach(id => {
+        actualizarBoton(id);
+    });
+};
+</script>
+
+
+
+</body>
+</html>

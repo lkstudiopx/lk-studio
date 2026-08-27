@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos - LK STUDIO</title>
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <h1>LK STUDIO</h1>
+        </div>
+
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="disenos.html">Diseños</a></li>
+            <li><a href="productos.html">Productos</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <section class="pagina">
+        <h2>PRODUCTOS</h2>
+
+        <!-- CONTENEDOR DINÁMICO -->
+        <div class="productos" id="contenedorProductos"></div>
+    </section>
+
+    <!-- MODAL -->
+    <div id="modalProducto" class="modal" onclick="cerrarProducto()">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <img id="imgProductoGrande">
+
+            <h3 id="nombreProducto"></h3>
+            <p id="descripcionProducto"></p>
+            <span id="precioProducto"></span>
+        </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+    const productos = [
+        {
+            img: "imagenP/Sneaker.png",
+            nombre: "Sticker Sneakers",
+            descripcion: "Sticker inspirado en sneakers estilo urbano.",
+            precio: "₡500"
+        },
+        {
+            img: "imagenP/agua dulce.png",
+            nombre: "Sticker Agua Dulce",
+            descripcion: "Diseño inspirado en bebida tradicional costarricense.",
+            precio: "₡500"
+        },
+        {
+            img: "imagenP/Pinoleta.png",
+            nombre: "Sticker Pinoleta",
+            descripcion: "Dulce típico en versión pixel art.",
+            precio: "₡500"
+        },
+        {
+            img: "imagenP/chonete.png",
+            nombre: "Sticker Chonete",
+            descripcion: "Sombrero tradicional de Costa Rica.",
+            precio: "₡500"
+        },
+        {
+            img: "imagenP/Gengar.png",
+            nombre: "Sticker Gengar",
+            descripcion: "Fan art estilo pixel del Pokémon Gengar.",
+            precio: "₡500"
+        },
+        {
+            img: "imagenP/Funny Link.png",
+            nombre: "Sticker Funny Link",
+            descripcion: "Versión divertida de Link en pixel art.",
+            precio: "₡500"
+        },
+        {
+            img: "imagenP/Gismo.png",
+            nombre: "Sticker Gismo",
+            descripcion: "Personaje clásico en estilo pixel.",
+            precio: "₡500"
+        },
+        {
+            img: "imagenP/Jesus En patineta.png",
+            nombre: "Sticker Jesús Patineta",
+            descripcion: "Diseño creativo estilo urbano.",
+            precio: "₡500"
+        },
+        {
+            img: "imagenP/Kirby con espada.png",
+            nombre: "Sticker Kirby Espada",
+            descripcion: "Kirby en modo guerrero pixel art.",
+            precio: "₡500"
+        },
+        {
+            img: "imagenP/Pacha con Jet.png",
+            nombre: "Sticker Pacha Jet",
+            descripcion: "Personaje con estilo divertido.",
+            precio: "₡500"
+        },
+        {
+            img: "imagenP/R2-D2.png",
+            nombre: "Sticker R2-D2",
+            descripcion: "Droid clásico en pixel art.",
+            precio: "₡500"
+        },
+        {
+            img: "imagenP/Snorlax.png",
+            nombre: "Sticker Snorlax",
+            descripcion: "El Pokémon más relajado en pixel.",
+            precio: "₡500"
+        },
+        {
+            img: "imagenP/Stich.png",
+            nombre: "Sticker Stitch",
+            descripcion: "Personaje adorable en pixel art.",
+            precio: "₡500"
+        }
+    ];
+
+    const contenedor = document.getElementById("contenedorProductos");
+
+    productos.forEach(producto => {
+        contenedor.innerHTML += `
+            <div class="producto">
+                <img src="${producto.img}" alt="${producto.nombre}">
+                <h3>${producto.nombre}</h3>
+                <span>${producto.precio}</span>
+                <a href="#" class="boton"
+                    onclick="abrirProducto(
+                        '${producto.img}',
+                        '${producto.nombre}',
+                        '${producto.descripcion}',
+                        '${producto.precio}'
+                    )">
+                    Ver producto
+                </a>
+            </div>
+        `;
+    });
+
+    function abrirProducto(img, nombre, descripcion, precio) {
+        document.getElementById("modalProducto").style.display = "flex";
+
+        document.getElementById("imgProductoGrande").src = img;
+        document.getElementById("nombreProducto").textContent = nombre;
+        document.getElementById("descripcionProducto").textContent = descripcion;
+        document.getElementById("precioProducto").textContent = precio;
+    }
+
+    function cerrarProducto() {
+        document.getElementById("modalProducto").style.display = "none";
+    }
+    </script>
+
+</body>
+</html>
