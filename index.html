@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>LK STUDIO</title>
+
+    <!-- Fuente pixel -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo-container">
+            <img src="imagenes/LKLogotipo.png" class="logo">
+        
+        </div>
+
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="disenos.html">Diseños</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="#">Categorías</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- SOBRE -->
+    <section class="sobre">
+
+        <!-- IMAGEN -->
+        <div class="sobre-imagen">
+            <img src="imagenes/BackGroundBlue.png"
+                 alt="Pixel art monocromático LK Studio">
+        </div>
+
+
+        <!-- INFORMACIÓN -->
+        <div class="sobre-contenido">
+
+            <h2>Sobre Mi Trabajo</h2>
+
+            <p>
+                Creo pixel art inspirado en videojuegos, anime y cultura costarricense.
+                Este proyecto comenzó como un pasatiempo y ahora es una forma de compartir
+                mi creatividad con el mundo.
+            </p>
+
+            <!-- CARDS -->
+            <section class="sobre-trabajo">
+
+                <h2>SOBRE MI TRABAJO</h2>
+
+                <div class="contenedor-cards">
+
+                    <div class="card">
+                        <h3>🎮 VIDEOJUEGOS</h3>
+                        <p>
+                            Pixel art inspirados en videojuegos.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>🌸 ANIME</h3>
+                        <p>
+                            Pixel arts inspirados en personajes y ambientes anime.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>🎨 ESTILOS</h3>
+                        <p>
+                            Diferentes estilos de dibujo pixel art.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>🇨🇷 COSTA RICA</h3>
+                        <p>
+                            Inspiración en cultura y paisajes de Costa Rica.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </section>
+
+
+    <!-- 🔥 PREVIEW -->
+    <section class="preview">
+
+        <!-- DISEÑOS -->
+        <div class="preview-header">
+            <h2>
+                <a href="disenos.html">DISEÑOS</a>
+            </h2>
+        </div>
+
+        <div class="preview-disenos" id="previewDisenos"></div>
+
+
+        <!-- PRODUCTOS -->
+        <div class="preview-header">
+            <h2>
+                <a href="productos.html">PRODUCTOS</a>
+            </h2>
+        </div>
+
+        <div class="preview-productos" id="previewProductos"></div>
+
+    </section>
+
+
+    <!-- SCRIPT -->
+    <script>
+
+    // 🔹 LISTA DE DISEÑOS
+    const disenos = [
+        "imagenes/frieren.png",
+        "imagenes/Bocchi.png",
+        "imagenes/Snoopy.png",
+        "imagenes/Gengar.png",
+        "imagenes/Kirby Fiestast.png",
+        "imagenes/Mario BROS.png"
+    ];
+
+
+    // 🔹 LISTA DE PRODUCTOS
+    const productos = [
+        { img: "imagenP/Sneaker.png", precio: "₡500" },
+        { img: "imagenP/Gengar.png", precio: "₡500" },
+        { img: "imagenP/Snorlax.png", precio: "₡500" },
+        { img: "imagenP/Stich.png", precio: "₡500" },
+        { img: "imagenP/Pinoleta.png", precio: "₡500" }
+    ];
+
+
+    // 🔥 FUNCIÓN PARA MEZCLAR (RANDOM)
+    function mezclar(array) {
+        return array.sort(() => Math.random() - 0.5);
+    }
+
+
+    // 🔹 MOSTRAR DISEÑOS RANDOM
+    const contDisenos = document.getElementById("previewDisenos");
+
+    mezclar(disenos).slice(0, 4).forEach(img => {
+
+        contDisenos.innerHTML += `
+            <img src="${img}">
+        `;
+
+    });
+
+
+    // 🔹 MOSTRAR PRODUCTOS RANDOM
+    const contProductos = document.getElementById("previewProductos");
+
+    mezclar(productos).slice(0, 4).forEach(p => {
+
+        contProductos.innerHTML += `
+            <div class="preview-card">
+                <img src="${p.img}">
+                <p>${p.precio}</p>
+            </div>
+        `;
+
+    });
+
+    </script>
+
+</body>
+</html>
